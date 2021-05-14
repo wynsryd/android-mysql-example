@@ -42,17 +42,16 @@ public class MainActivity extends AppCompatActivity {
                     info.put("address", resultSet.getString("address"));
                     info.put("phone_number", resultSet.getString("phone_number"));
                 }
-                return info;
             } catch (Exception e) {
                 Log.e("InfoAsyncTask", "Error reading school information", e);
             }
 
-            return null;
+            return info;
         }
 
         @Override
         protected void onPostExecute(Map<String, String> result) {
-            if (result != null) {
+            if (!result.isEmpty()) {
                 TextView textViewName = findViewById(R.id.textViewName);
                 TextView textViewAddress = findViewById(R.id.textViewAddress);
                 TextView textViewPhoneNumber = findViewById(R.id.textViewPhone);
